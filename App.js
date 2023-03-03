@@ -11,6 +11,7 @@ import {Button, Platform, View, StatusBar} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Canvas2dDemoScreen from './app/components/Canvas2dDemo';
+import DrawCanvas2CanvasScreen from './app/components/DrawCanvas2Canvas';
 import ZdogAndTestsScreen from './app/components/ZdogAndTests';
 import Webgl3dTexturesScreen from './app/components/Webgl3dTextures';
 import WebglCubeMapsScreen from './app/components/WebglCubeMaps';
@@ -32,6 +33,10 @@ function HomeScreen({navigation}) {
         onPress={() => navigation.navigate('Canvas2dDemo')}
       />
       <Button
+        title="Draw Canvas to Canvas"
+        onPress={() => navigation.navigate('DrawCanvas2Canvas')}
+      />
+      <Button
         title="Zdog and Tests"
         onPress={() => navigation.navigate('ZdogAndTests')}
       />
@@ -43,10 +48,7 @@ function HomeScreen({navigation}) {
         title="Webgl Cube Maps"
         onPress={() => navigation.navigate('WebglCubeMaps')}
       />
-      <Button
-        title="PixiJS"
-        onPress={() => navigation.navigate('PixiJS')}
-      />
+      <Button title="PixiJS" onPress={() => navigation.navigate('PixiJS')} />
       <Button
         title="babylonjs Drag and drop"
         onPress={() => navigation.navigate('DragNDrop')}
@@ -75,6 +77,11 @@ const App: () => Node = () => {
           name="Canvas2dDemo"
           component={Canvas2dDemoScreen}
           options={{title: 'Canvas 2d Demo'}}
+        />
+        <Stack.Screen
+          name="DrawCanvas2Canvas"
+          component={DrawCanvas2CanvasScreen}
+          options={{title: 'Draw Canvas to Canvas'}}
         />
         <Stack.Screen
           name="ZdogAndTests"
