@@ -12,6 +12,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Canvas2dDemoScreen from './app/components/Canvas2dDemo';
 import DrawCanvas2CanvasScreen from './app/components/DrawCanvas2Canvas';
+import FontPicker2FillTextScreen from './app/components/FontPicker2FillText';
 import ZdogAndTestsScreen from './app/components/ZdogAndTests';
 import Webgl3dTexturesScreen from './app/components/Webgl3dTextures';
 import WebglCubeMapsScreen from './app/components/WebglCubeMaps';
@@ -35,6 +36,10 @@ function HomeScreen({navigation}) {
       <Button
         title="Draw Canvas to Canvas"
         onPress={() => navigation.navigate('DrawCanvas2Canvas')}
+      />
+      <Button
+        title="Font Picker to fillText"
+        onPress={() => navigation.navigate('FontPicker2FillText')}
       />
       <Button
         title="Zdog and Tests"
@@ -82,6 +87,11 @@ const App: () => Node = () => {
           name="DrawCanvas2Canvas"
           component={DrawCanvas2CanvasScreen}
           options={{title: 'Draw Canvas to Canvas'}}
+        />
+        <Stack.Screen
+          name="FontPicker2FillText"
+          component={FontPicker2FillTextScreen}
+          options={{title: 'Font Picker to fillText'}}
         />
         <Stack.Screen
           name="ZdogAndTests"
