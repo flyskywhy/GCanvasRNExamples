@@ -4,7 +4,9 @@ Examples for [@flyskywhy/react-native-gcanvas](https://github.com/flyskywhy/reac
 
 * GIF of [Canvas 2d Demo](https://github.com/flyskywhy/react-native-gcanvas#2d-canvas)
 
-<img src="https://raw.githubusercontent.com/flyskywhy/react-native-gcanvas/master/assets/canvas.gif" width="480">
+* GIF of [Font Picker to fillText](https://github.com/flyskywhy/GCanvasRNExamples/blob/master/app/components/FontPicker2FillText.js)
+
+<img src="https://raw.githubusercontent.com/flyskywhy/GCanvasRNExamples/master/assets/FontPicker2FillText.gif" width="480">
 
 * GIF of [Zdog](https://codepen.io/clarke-nicol/pen/OezRdM)
 
