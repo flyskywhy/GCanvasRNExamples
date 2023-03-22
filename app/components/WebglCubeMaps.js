@@ -384,7 +384,10 @@ export default class WebglCubeMaps extends Component {
               true /* Here is just for example, you can remove this line because default is true */
             }
             isAutoClearRectBeforePutImageData={
-              false /* default is false, if you want to be exactly compatible with Web, you can set it to true*/
+              false /* default is false, only for canvas 2d, if you want to be exactly compatible with Web, you can set it to true */
+            }
+            isEnableFboMsaa={
+              false /* default is false, only for Android, only for canvas 2d, if you want anti-aliasing present same behavior on Android and Web, you can set it to true */
             }
             devicePixelRatio={
               undefined /* Here is just for example, you can remove this line because default is undefined and means default is PixelRatio.get(), ref to "About devicePixelRatio" below */
