@@ -62,10 +62,10 @@ target 'GCanvasRNExamples' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
-  target 'GCanvasRNExamplesTests' do
-    inherit! :complete
-    # Pods for testing
-  end
+  # target 'GCanvasRNExamplesTests' do
+  #   inherit! :complete
+  #   # Pods for testing
+  # end
 
   post_install do |installer|
     react_native_post_install(
