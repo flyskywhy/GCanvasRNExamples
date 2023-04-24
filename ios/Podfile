@@ -1,3 +1,8 @@
+# `CDN: trunk URL couldn't be downloaded`, so use Specs.git instead
+# source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git' # 下载到一半会出错
+# source 'https://gitee.com/mirrors/CocoaPods-Specs.git' # 国内速度最快，但是更新不及时
+source 'https://github.com/CocoaPods/Specs.git' # 更新最及时，但是国内需要翻墙
+
 require File.join(File.dirname(`node --print "require.resolve('expo/package.json')"`), "scripts/autolinking")
 require_relative '../node_modules/react-native/scripts/react_native_pods'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
