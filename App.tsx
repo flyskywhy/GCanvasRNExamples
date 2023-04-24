@@ -68,7 +68,7 @@ function HomeScreen({navigation}) {
 
 const Stack = createNativeStackNavigator();
 
-const App: () => Node = () => {
+function App(): JSX.Element {
   return (
     <NavigationContainer>
       <StatusBar barStyle="dark-content" />
@@ -126,6 +126,6 @@ const App: () => Node = () => {
       </Stack.Navigator>
     </NavigationContainer>
   );
-};
+}
 
 export default App;

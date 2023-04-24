@@ -2,7 +2,8 @@
 
 buildscript {
     ext {
-        buildToolsVersion = "31.0.0"
+        buildToolsVersion = "33.0.0"
+
 
         // D8: Cannot fit requested classes in a single dex file (# methods: 71398 > 65536)
         // com.android.builder.dexing.DexArchiveMergerException: Error while merging dex archives:
@@ -10,37 +11,12 @@ buildscript {
         // Learn how to resolve this issue at https://developer.android.com/tools/building/multidex.html
         minSdkVersion = 24
 
-        compileSdkVersion = 31
-        targetSdkVersion = 31
+        compileSdkVersion = 33
+        targetSdkVersion = 33
 
-        if (System.properties['os.arch'] == "aarch64") {
-            // For M1 Users we need to use the NDK 24 which added support for aarch64
-            ndkVersion = "24.0.8215888"
-        } else {
-            // Otherwise we default to the side-by-side NDK version from AGP.
-            ndkVersion = "21.4.7075529"
-        }
-
-        kotlinVersion = "1.6.0"
+        // We use NDK 23 which has both M1 support and is the side-by-side NDK version from AGP.
+        ndkVersion = "23.1.7779620"
     }
-    repositories {
-        maven { url 'https://maven.aliyun.com/repository/google' }
-        maven { url 'https://maven.aliyun.com/repository/jcenter' }
-        maven { url 'https://maven.aliyun.com/nexus/content/groups/public' }
-
-        google()
-        mavenCentral()
-    }
-    dependencies {
-        classpath("com.android.tools.build:gradle:7.2.1")
-        classpath("com.facebook.react:react-native-gradle-plugin")
-        classpath("de.undercouch:gradle-download-task:5.0.1")
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
-    }
-}
-
-allprojects {
     repositories {
         // to fix `Read timed out` e.g.
         // > Could not resolve all artifacts for configuration ':react-native-fs:classpath'.
@@ -51,28 +27,14 @@ allprojects {
         //       > Could not get resource 'https://repo.maven.apache.org/maven2/com/google/guava/guava/17.0/guava-17.0.jar'.
         //          > Read timed out
         maven { url 'https://maven.aliyun.com/repository/google' }
-
-        maven {
-            // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
-            url("$rootDir/../node_modules/react-native/android")
-        }
-        maven {
-            // Android JSC is installed from npm
-            url("$rootDir/../node_modules/jsc-android/dist")
-        }
-
-        maven { url 'https://maven.aliyun.com/repository/google' }
         maven { url 'https://maven.aliyun.com/repository/jcenter' }
         maven { url 'https://maven.aliyun.com/nexus/content/groups/public' }
 
-        mavenCentral {
-            // We don't want to fetch react-native from Maven Central as there are
-            // older versions over there.
-            content {
-                excludeGroup "com.facebook.react"
-            }
-        }
         google()
-        maven { url 'https://www.jitpack.io' }
+        mavenCentral()
+    }
+    dependencies {
+        classpath("com.android.tools.build:gradle:7.4.1")
+        classpath("com.facebook.react:react-native-gradle-plugin")
     }
 }
