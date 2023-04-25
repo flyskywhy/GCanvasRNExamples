@@ -40,6 +40,8 @@ target 'GCanvasRNExamples' do
   end
   config = use_native_modules!
 
+  pod "GCanvas", :path => "../node_modules/@flyskywhy/react-native-gcanvas/GCanvas.podspec"
+
   # Flags change depending on the env values.
   flags = get_default_flags()
 
