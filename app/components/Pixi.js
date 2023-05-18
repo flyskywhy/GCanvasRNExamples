@@ -120,13 +120,10 @@ export default class Pixi extends Component {
 
     const spriteByPixi7Assets = async () => {
       const gameLoop = (delta) => {
-        spriteHttpLoader.y -= 1;
+        if (spriteHttpLoader) {
+          spriteHttpLoader.y -= 1;
+        }
       };
-
-      const textureHttp = await PIXI.loadTextures.load(imageHttpSrc, {});
-      spriteHttpLoader = new PIXI.Sprite(textureHttp);
-      this.app.stage.addChild(spriteHttpLoader);
-      spriteHttpLoader.y = 700;
 
       const textureRequire = await PIXI.loadTextures.load(imageRequireAsset.uri, {});
       spriteRequireLoader = new PIXI.Sprite(textureRequire);
@@ -135,6 +132,11 @@ export default class Pixi extends Component {
       spriteRequireLoader.y = 700;
 
       this.app.ticker.add((delta) => gameLoop(delta));
+
+      const textureHttp = await PIXI.loadTextures.load(imageHttpSrc, {});
+      spriteHttpLoader = new PIXI.Sprite(textureHttp);
+      this.app.stage.addChild(spriteHttpLoader);
+      spriteHttpLoader.y = 700;
     };
 
     // const pixiLoader = PIXI.loader; // pixi.js@4.8.9 need this
@@ -142,17 +144,12 @@ export default class Pixi extends Component {
 
     const spriteByResourceLoader = () => {
       const gameLoop = (delta) => {
-        spriteHttpLoader.y -= 1;
+        if (spriteHttpLoader) {
+          spriteHttpLoader.y -= 1;
+        }
       };
 
       const setup = (loader, resources) => {
-        spriteHttpLoader = new PIXI.Sprite(
-          pixiLoader.resources[imageHttpSrc].texture,
-        );
-
-        this.app.stage.addChild(spriteHttpLoader);
-        spriteHttpLoader.y = 700;
-
         spriteRequireLoader = new PIXI.Sprite(
           pixiLoader.resources[imageRequireAsset.uri].texture,
         );
@@ -160,6 +157,13 @@ export default class Pixi extends Component {
 
         spriteRequireLoader.x = 500;
         spriteRequireLoader.y = 700;
+
+        spriteHttpLoader = new PIXI.Sprite(
+          pixiLoader.resources[imageHttpSrc].texture,
+        );
+
+        this.app.stage.addChild(spriteHttpLoader);
+        spriteHttpLoader.y = 700;
 
         this.app.ticker.add((delta) => gameLoop(delta));
       };
