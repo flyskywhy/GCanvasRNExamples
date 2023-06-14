@@ -541,7 +541,10 @@ export default class Webgl3dTextures extends Component {
   onCanvasResize = ({width, height, canvas}) => {
     canvas.width = width;
     canvas.height = height;
-    // this.drawSome();
+    this.drawSome();
+    if (!isLooping) {
+      setTimeout(this.drawSome, 32);
+    }
   };
 
   drawSome = async () => {
