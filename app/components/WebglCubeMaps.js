@@ -310,10 +310,12 @@ export default class WebglCubeMaps extends Component {
   onCanvasResize = ({width, height, canvas}) => {
     canvas.width = width;
     canvas.height = height;
-    this.drawSome();
-    if (!isLooping) {
-      setTimeout(this.drawSome, 32);
-    }
+
+    // if isResetGlViewportAfterSetWidthOrHeight is true, you can use below
+    // this.drawSome();
+    // if (!isLooping) {
+    //   setTimeout(this.drawSome, 32);
+    // }
   };
 
   drawSome = async () => {
@@ -392,6 +394,9 @@ export default class WebglCubeMaps extends Component {
             isAutoClearRectBeforePutImageData={
               false /* default is false, only for canvas 2d, if you want to be exactly compatible with Web, you can set it to true */
             }
+            isResetGlViewportAfterSetWidthOrHeight={
+              false /* default is true, generally true for canvas 2d and false for webgl 3d */
+            }
             isEnableFboMsaa={
               false /* default is false, only for Android, only for canvas 2d, if you want anti-aliasing present same behavior on Android and Web, you can set it to true */
             }
@@ -417,17 +422,17 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5FCFF',
   },
   gcanvas: {
-    // flex: 1,
-    // width: '100%',
+    flex: 1,
+    width: '100%',
     // above maybe will cause
     //     ERROR    *** Error compiling shader '[object Object]':
     //     ERROR    *** Error compiling shader '[object Object]':
     //     WARN     Possible Unhandled Promise Rejection (id: 0):
     //     TypeError: null is not an object (evaluating 'shader.id')
     // if let this component as a children of another component,
-    // so use below
-    width: 200,
-    height: 300,
+    // you can use below
+    // width: 200,
+    // height: 300,
 
     // backgroundColor: '#FF000030', // TextureView doesn't support displaying a background drawable since Android API 24
   },

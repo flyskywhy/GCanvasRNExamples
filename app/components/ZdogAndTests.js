@@ -464,7 +464,6 @@ export default class ZdogAndTests extends Component {
   onCanvasResize = ({width, height, canvas}) => {
     canvas.width = width;
     canvas.height = height;
-    // this.drawSome();
   };
 
   drawSome = async () => {
@@ -538,6 +537,9 @@ export default class ZdogAndTests extends Component {
             }
             isAutoClearRectBeforePutImageData={
               false /* default is false, only for canvas 2d, if you want to be exactly compatible with Web, you can set it to true */
+            }
+            isResetGlViewportAfterSetWidthOrHeight={
+              false /* default is true, generally true for canvas 2d and false for webgl 3d */
             }
             isEnableFboMsaa={
               false /* default is false, only for Android, only for canvas 2d, if you want anti-aliasing present same behavior on Android and Web, you can set it to true */
