@@ -4,6 +4,8 @@
  *
  * @format
  */
+const defaultAssetExts = require('metro-config/src/defaults/defaults')
+  .assetExts;
 const exclusionList = require('metro-config/src/defaults/exclusionList');
 
 module.exports = {
@@ -16,8 +18,7 @@ module.exports = {
     }),
   },
   resolver: {
-    assetExts: ['dds', 'txt', 'jpg', 'png'],
-    sourceExts: ['js', 'json', 'ts', 'tsx', 'jsx'],
+    assetExts: [...defaultAssetExts, 'dds', 'txt'],
     blockList: exclusionList([
       // to avoid node_watcher error below when `npm run web-clean` besides `npm run rn` on Windows
       //events.js:174
