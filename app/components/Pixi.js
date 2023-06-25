@@ -139,8 +139,12 @@ export default class Pixi extends Component {
       spriteHttpLoader.y = 700;
     };
 
-    // const pixiLoader = PIXI.loader; // pixi.js@4.8.9 need this
-    const pixiLoader = PIXI.Loader && PIXI.Loader.shared; // pixi.js@5 @6 need this
+    // pixi.js@4.8.9 need this
+    // const pixiLoader = PIXI.loader;
+
+    // pixi.js@5 @6 need this
+    const {Loader} = PIXI;
+    const pixiLoader = Loader && Loader.shared;
 
     const spriteByResourceLoader = () => {
       const gameLoop = (delta) => {
