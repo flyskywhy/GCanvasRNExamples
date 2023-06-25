@@ -10,6 +10,8 @@ module.exports = {
     delete config.resolve.alias['react-native'];
     config.resolve.alias['react-native/Libraries/Components/StaticRenderer'] =
       'react-native-web/dist/vendor/react-native/StaticRenderer';
+    config.resolve.alias['react-native/Libraries/Image/AssetRegistry'] =
+      'react-native-web/dist/modules/AssetRegistry';
     config.resolve.alias['react-native'] = path.resolve(
       'web/aliases/react-native',
     );
