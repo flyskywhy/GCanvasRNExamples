@@ -49,7 +49,11 @@ module.exports = {
       // ref to node_modules/react-scripts/config/webpack.config.js
       let applicationRule = config.module.rules[1].oneOf[3];
 
-      // with webpack@5 , will cause `BREAKING CHANGE: The request './setPrototypeOf' failed to resolve only
+      // with webpack@5 , will cause
+      // `Module not found: Error: Can't resolve 'react/jsx-dev-runtime'` or
+      // `Module not found: Error: Can't resolve 'react/jsx-runtime'` ref to
+      // https://docs.dynamic.xyz/docs/react-17-with-dynamic-react-sdk-0140 or
+      //  `BREAKING CHANGE: The request './setPrototypeOf' failed to resolve only
       // because it was resolved as fully specified` if not define below, ref to
       // https://stackoverflow.com/a/69255531/6318705
       applicationRule.resolve = {
@@ -57,7 +61,7 @@ module.exports = {
       };
 
       // with webpack@5 , will cause `Attempted import error: '@canvas/image-data/index' does not contain a
-      // default export (imported as 'ImageData').` if not define below, that's `import ImageData from '@canvas/image-data/index';`
+      // default export (imported as 'ImageData')` if not define below, that's `import ImageData from '@canvas/image-data/index';`
       // in `node_modules/@flyskywhy/react-native-browser-polyfill/src/window.js`
       applicationRule.options.sourceType = 'unambiguous';
     }
