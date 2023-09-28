@@ -11,6 +11,7 @@ import {Button, Platform, View, StatusBar} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Canvas2dDemoScreen from './app/components/Canvas2dDemo';
+import RotateRemount2MemoryLeakScreen from './app/components/RotateRemount2MemoryLeak';
 import DrawCanvas2CanvasScreen from './app/components/DrawCanvas2Canvas';
 import FontPicker2FillTextScreen from './app/components/FontPicker2FillText';
 import ZdogAndTestsScreen from './app/components/ZdogAndTests';
@@ -32,6 +33,10 @@ function HomeScreen({navigation}) {
       <Button
         title="Canvas 2d Demo"
         onPress={() => navigation.navigate('Canvas2dDemo')}
+      />
+      <Button
+        title="Rotate Remount to test Memory Leak"
+        onPress={() => navigation.navigate('RotateRemount2MemoryLeak')}
       />
       <Button
         title="Draw Canvas to Canvas"
@@ -82,6 +87,11 @@ function App(): JSX.Element {
           name="Canvas2dDemo"
           component={Canvas2dDemoScreen}
           options={{title: 'Canvas 2d Demo'}}
+        />
+        <Stack.Screen
+          name="RotateRemount2MemoryLeak"
+          component={RotateRemount2MemoryLeakScreen}
+          options={{title: 'Rotate Remount to test Memory Leak'}}
         />
         <Stack.Screen
           name="DrawCanvas2Canvas"
