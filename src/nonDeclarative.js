@@ -9,9 +9,7 @@ import {
 } from 'react-native';
 import '@flyskywhy/react-native-browser-polyfill';
 import {Asset} from 'expo-asset';
-if (Platform.OS !== 'web') {
-  var RNFS = require('react-native-fs');
-}
+import GetAsset from 'react-native-get-asset';
 import {Engine, Scene} from 'react-native-babylonjs';
 import { Color3, FreeCamera, Vector3, ArcRotateCamera, DefaultRenderingPipeline, HemisphericLight, DepthOfFieldEffectBlurLevel, PBRMetallicRoughnessMaterial, CubeTexture, Mesh } from '@babylonjs/core';
 import { Control, TextBlock, Slider, StackPanel, AdvancedDynamicTexture } from '@babylonjs/gui'
@@ -33,82 +31,13 @@ async function onSceneMount(e) {
   light.intensity = 0.7;
   var pbr = new PBRMetallicRoughnessMaterial("pbr", scene);
 
-  // let url = 'https://raw.githubusercontent.com/brianzinn/react-babylonjs/v3.1.3/packages/storybook/storyboard-site/assets/textures/environment.dds';
-  let url = 'textures/environment.dds';
+  const url = await GetAsset.downloadUrlOrRequireId2DataURL({
+    // src: 'https://raw.githubusercontent.com/brianzinn/react-babylonjs/v3.1.3/packages/storybook/storyboard-site/assets/textures/environment.dds';
+    src: Platform.OS !== 'web' ? require('../public/textures/environment.dds') : 'textures/environment.dds',
+    urlAvoidDataURL: true,
+  });
   let forcedExtension = '.dds';
 
-  if (Platform.OS !== 'web') {
-    const environmentId = require('../public/textures/environment.dds');
-    const environmentAsset = Asset.fromModule(environmentId);
-
-    if (environmentAsset.uri.match('^http')) {
-      // In react-native debug/dev mode the asset will be served over http://localhost:8081
-      // console.warn(environmentAsset);
-      // {
-      //   downloaded: false,
-      //   downloading: false,
-      //   hash: 'e57fc2e467eb5595c3c1a0ebf7b2770b',
-      //   height: null,
-      //   localUri: null,
-      //   name: 'environment',
-      //   type: dds,
-      //   uri: 'http://localhost:8081/assets/public/textures/environment.dds?platform=android&hash=e57fc2e467eb5595c3c1a0ebf7b2770b',
-      //   width: null
-      // }
-      // In react-native-web debug mode the asset will be served over http://localhost:3000
-      // so you can also use require('../public/textures/environment.dds') instead of
-      // `let url = 'textures/environment.dds';` above, if you wish
-      // {
-      //   downloaded: false,
-      //   downloading: false,
-      //   hash: null,
-      //   height: null,
-      //   localUri: null,
-      //   name: 'environment.6140ab69a9155fbef5c1.dds',
-      //   type: 'dds',
-      //   uri: '/static/media/environment.6140ab69a9155fbef5c1.dds',
-      //   width: null,
-      // }
-
-      // because ThinEngine.prototype._createTextureBase() in @babylonjs/core/Engines/thinEngine.js
-      // will "Remove query string", so we just use the uri
-      // url = environmentAsset.uri;
-      // to fix "Cannot load cubemap because files were not defined" of createCubeTextureBase()
-      // in @babylonjs/core/Engines/Extensions/engine.cubeTexture.js
-
-      url = environmentAsset.uri.replace(/\?.*/, '');
-    } else {
-      // In release mode the asset will be on the file system.
-      let environmentBase64;
-      if (Platform.OS === 'android') {
-        // On android we get a resource id instead of a regular path. We need
-        // to load the weights from the res/raw folder using this id.
-        try {
-          environmentBase64 = await RNFS.readFileRes(`${environmentAsset.uri}.${environmentAsset.type}`, 'base64');
-        } catch (err) {
-          throw new Error(`Error reading resource ${environmentAsset.uri}. Make sure the file is
-        in located in the res/raw folder of the bundle`);
-        }
-      } else {
-        try {
-          environmentBase64 = await RNFS.readFile(environmentAsset.uri, 'base64');
-        } catch (err) {
-          throw new Error(`Error reading resource ${environmentAsset.uri}. Make sure the file is
-        in located in the res/raw(where on iOS?) folder of the bundle`);
-        }
-      }
-
-      let dataUrl = 'data:';
-      const type = 'image/vnd.ms-dds'; // require('react-native-mime-types').lookup('environment.dds')
-      if (type) {
-        dataUrl += type + ';';
-      }
-      dataUrl += 'base64,';
-      dataUrl += environmentBase64;
-
-      url = dataUrl;
-    }
-  }
   pbr.environmentTexture = CubeTexture.CreateFromPrefilteredData(
     url,
     scene,
