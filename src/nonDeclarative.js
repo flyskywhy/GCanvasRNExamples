@@ -110,7 +110,7 @@ async function onSceneMount(e) {
       header.color = "black";
       header.textHorizontalAlignment = Control.HORIZONTAL_ALIGNMENT_LEFT;
       header.paddingTop = "10px";
-      UiPanel.addControl(header); 
+      UiPanel.addControl(header);
       var slider = new Slider();
       slider.horizontalAlignment = Control.HORIZONTAL_ALIGNMENT_LEFT;
       slider.minimum = param.min;
@@ -119,12 +119,12 @@ async function onSceneMount(e) {
       slider.value = pipeline.depthOfField[param.name];
       slider.height = "20px";
       slider.width = "205px";
-      UiPanel.addControl(slider); 
+      UiPanel.addControl(slider);
       slider.onValueChangedObservable.add(function(v){
           pipeline.depthOfField[param.name] = v;
           header.text = param.name+":"+pipeline.depthOfField[param.name].toFixed(2);
           moveFocusDistance = false;
-      }) 
+      })
   })
   scene.activeCameras = [scene.activeCamera, bgCamera];
 
@@ -209,6 +209,7 @@ const styles = StyleSheet.create({
     color: 'blue',
   },
   description: {
+    color: 'black',
     textAlign: 'center',
     paddingVertical: 16,
     fontWeight: '400',

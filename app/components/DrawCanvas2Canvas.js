@@ -134,6 +134,7 @@ const styles = StyleSheet.create({
     // backgroundColor: '#FF000030', // TextureView doesn't support displaying a background drawable since Android API 24
   },
   welcome: {
+    color: 'black',
     fontSize: 20,
     textAlign: 'center',
     marginVertical: 20,
