@@ -51,6 +51,8 @@
     "react-native-font-picker": "1.0.0",
     "react-native-fs": "^2.18.0",
     "react-native-get-asset": "1.0.0",
+    "react-native-live-audio-fft": "1.2.2",
+    "react-native-permissions": "3.10.1",
     "react-native-safe-area-context": "3.4.1",
     "react-native-screens": "3.20.0",
     "react-native-web": "^0.17.5",

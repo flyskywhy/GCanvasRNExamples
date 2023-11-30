@@ -15,6 +15,7 @@ import RotateRemount2MemoryLeakScreen from './app/components/RotateRemount2Memor
 import DrawCanvas2CanvasScreen from './app/components/DrawCanvas2Canvas';
 import FontPicker2FillTextScreen from './app/components/FontPicker2FillText';
 import ZdogAndTestsScreen from './app/components/ZdogAndTests';
+import AudioFrequencyHistogramScreen from './app/components/AudioFrequencyHistogram';
 import Webgl3dTexturesScreen from './app/components/Webgl3dTextures';
 import WebglCubeMapsScreen from './app/components/WebglCubeMaps';
 import PixiScreen from './app/components/Pixi';
@@ -49,6 +50,10 @@ function HomeScreen({navigation}) {
       <Button
         title="Zdog and Tests"
         onPress={() => navigation.navigate('ZdogAndTests')}
+      />
+      <Button
+        title="Audio Frequency Histogram"
+        onPress={() => navigation.navigate('AudioFrequencyHistogram')}
       />
       <Button
         title="Webgl 3d Textures"
@@ -107,6 +112,11 @@ function App(): JSX.Element {
           name="ZdogAndTests"
           component={ZdogAndTestsScreen}
           options={{title: 'Zdog and Tests'}}
+        />
+        <Stack.Screen
+          name="AudioFrequencyHistogram"
+          component={AudioFrequencyHistogramScreen}
+          options={{title: 'Audio Frequency Histogram'}}
         />
         <Stack.Screen
           name="Webgl3dTextures"
