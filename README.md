@@ -55,6 +55,8 @@ PS: If Xcode 13, will got error:
     node_modules/expo-modules-core/ios/Swift/DynamicTypes/DynamicEnumType.swift:7:22: Protocol 'Enumerable' can only be used as a generic constraint because it has Self or associated type requirements
     node_modules/expo-modules-core/ios/Swift/Objects/PropertyComponent.swift:142:9: Non-void function should return a value
 
+If got `No permission handler detected`, please "Product | Clean Builder Folder" in Xcode first.
+
 ## Web
 `npm run web` for development, then view it at [http://localhost:3000](http://localhost:3000) in web browser.
 

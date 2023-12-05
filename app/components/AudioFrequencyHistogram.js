@@ -126,7 +126,7 @@ export default class AudioFrequencyHistogram extends Component {
     const status = await request(
       Platform.select({
         android: PERMISSIONS.ANDROID.RECORD_AUDIO,
-        ios: PERMISSIONS.IOS.MICROPHONE,
+        ios: PERMISSIONS.IOS.MICROPHONE, // actually, it's not necessary to request MICROPHONE on iOS
       }),
     );
     if (status === 'granted') {
