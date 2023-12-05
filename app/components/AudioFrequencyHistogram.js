@@ -112,7 +112,7 @@ export default class AudioFrequencyHistogram extends Component {
       } else if (this.histogram.set.width && this.histogram.set.height) {
         const {lastH} = this.histogram.frequencyData2H({
           frequencyData,
-          sampleRate: config.liveAudioStream.sampleRate,
+          sampleRate: optionsOfLiveAudioStream.sampleRate,
         });
         // then your custom canvas or other usecase can use lastH which
         // is an array of height (max is this.histogram.set.height) on every
