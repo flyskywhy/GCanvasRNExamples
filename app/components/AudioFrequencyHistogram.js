@@ -75,7 +75,7 @@ export default class AudioFrequencyHistogram extends Component {
       asyncFftAtFps: true, // if you want draw on every onAudioPcmData(), you should set it to false
       lineCount: 20,
       minHeight: 1,
-      stripeEnable: false,
+      stripeEnable: true,
     };
     this.histogram = FrequencyHistogramView(histogramSet);
   };
