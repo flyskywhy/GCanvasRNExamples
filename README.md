@@ -18,6 +18,10 @@ Examples for [@flyskywhy/react-native-gcanvas](https://github.com/flyskywhy/reac
 
 <img src="https://raw.githubusercontent.com/flyskywhy/GCanvasRNExamples/master/assets/AudioFrequencyHistogram.gif" width="480">
 
+* GIF of [Audio Wave Surfer](https://github.com/flyskywhy/GCanvasRNExamples/blob/master/app/components/AudioWaveSurfer.js)
+
+<img src="https://raw.githubusercontent.com/flyskywhy/GCanvasRNExamples/master/assets/AudioWaveSurfer.gif" width="480">
+
 * GIF of [Webgl 3d Textures](https://webglfundamentals.org/webgl/lessons/zh_cn/webgl-3d-textures.html)
 
 <img src="https://raw.githubusercontent.com/flyskywhy/GCanvasRNExamples/master/assets/Webgl3dTextures.gif" width="480">
