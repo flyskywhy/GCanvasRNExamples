@@ -16,6 +16,7 @@ import DrawCanvas2CanvasScreen from './app/components/DrawCanvas2Canvas';
 import FontPicker2FillTextScreen from './app/components/FontPicker2FillText';
 import ZdogAndTestsScreen from './app/components/ZdogAndTests';
 import AudioFrequencyHistogramScreen from './app/components/AudioFrequencyHistogram';
+import AudioWaveSurferScreen from './app/components/AudioWaveSurfer';
 import Webgl3dTexturesScreen from './app/components/Webgl3dTextures';
 import WebglCubeMapsScreen from './app/components/WebglCubeMaps';
 import PixiScreen from './app/components/Pixi';
@@ -54,6 +55,10 @@ function HomeScreen({navigation}) {
       <Button
         title="Audio Frequency Histogram"
         onPress={() => navigation.navigate('AudioFrequencyHistogram')}
+      />
+      <Button
+        title="Audio Wave Surfer"
+        onPress={() => navigation.navigate('AudioWaveSurfer')}
       />
       <Button
         title="Webgl 3d Textures"
@@ -117,6 +122,11 @@ function App(): JSX.Element {
           name="AudioFrequencyHistogram"
           component={AudioFrequencyHistogramScreen}
           options={{title: 'Audio Frequency Histogram'}}
+        />
+        <Stack.Screen
+          name="AudioWaveSurfer"
+          component={AudioWaveSurferScreen}
+          options={{title: 'Audio Wave Surfer'}}
         />
         <Stack.Screen
           name="Webgl3dTextures"
