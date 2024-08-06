@@ -52,6 +52,10 @@ export default class AudioWaveSurfer extends Component {
     }
   }
 
+  componentWillUnmount() {
+    this.stopAudioRecorder();
+  }
+
   initCanvas = (canvas) => {
     if (this.canvas) {
       return;
@@ -123,7 +127,7 @@ export default class AudioWaveSurfer extends Component {
     }
   };
 
-  stopAudioRecoder = () => {
+  stopAudioRecorder = () => {
     LiveAudioStream.stop();
   };
 
@@ -176,7 +180,7 @@ export default class AudioWaveSurfer extends Component {
             )
           )}
         </View>
-        <TouchableOpacity onPress={this.stopAudioRecoder}>
+        <TouchableOpacity onPress={this.stopAudioRecorder}>
           <Text style={styles.welcome}>Stop audio recoder</Text>
         </TouchableOpacity>
       </View>
