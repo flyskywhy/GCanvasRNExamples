@@ -22,6 +22,7 @@ import WebglCubeMapsScreen from './app/components/WebglCubeMaps';
 import PixiScreen from './app/components/Pixi';
 import DragNDropScreen from './src/dragNdrop';
 import NonDeclarativeScreen from './src/nonDeclarative';
+import PixelShapeRNScreen from './app/components/PixelShapeRNScreen';
 
 if (Platform.OS !== 'web') {
   require('react-native').LogBox.ignoreLogs([
@@ -76,6 +77,10 @@ function HomeScreen({navigation}) {
       <Button
         title="babylonjs Non-Declarative"
         onPress={() => navigation.navigate('NonDeclarative')}
+      />
+      <Button
+        title="Pixel Shape RN"
+        onPress={() => navigation.navigate('PixelShapeRN')}
       />
     </View>
   );
@@ -152,6 +157,11 @@ function App(): JSX.Element {
           name="NonDeclarative"
           component={NonDeclarativeScreen}
           options={{title: 'Non-Declarative'}}
+        />
+        <Stack.Screen
+          name="PixelShapeRN"
+          component={PixelShapeRNScreen}
+          options={{title: 'Pixel Shape RN'}}
         />
       </Stack.Navigator>
     </NavigationContainer>
