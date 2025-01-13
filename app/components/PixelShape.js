@@ -7,7 +7,7 @@ if (Platform.OS !== 'web') {
 import PixelShapeRN from 'pixelshapern/src/index';
 import {PixelShapeContext} from 'pixelshapern/src/context';
 
-export default class PixelShapeRNScreen extends Component {
+export default class PixelShape extends Component {
   componentDidMount() {
     if (Platform.OS === 'android') {
       ManageExternalStorage.checkAndGrantPermission().then(granted => {

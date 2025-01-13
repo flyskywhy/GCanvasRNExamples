@@ -22,7 +22,7 @@ import WebglCubeMapsScreen from './app/components/WebglCubeMaps';
 import PixiScreen from './app/components/Pixi';
 import DragNDropScreen from './src/dragNdrop';
 import NonDeclarativeScreen from './src/nonDeclarative';
-import PixelShapeRNScreen from './app/components/PixelShapeRNScreen';
+import PixelShapeScreen from './app/components/PixelShape';
 
 if (Platform.OS !== 'web') {
   require('react-native').LogBox.ignoreLogs([
@@ -79,8 +79,8 @@ function HomeScreen({navigation}) {
         onPress={() => navigation.navigate('NonDeclarative')}
       />
       <Button
-        title="Pixel Shape RN"
-        onPress={() => navigation.navigate('PixelShapeRN')}
+        title="Pixel Shape"
+        onPress={() => navigation.navigate('PixelShape')}
       />
     </View>
   );
@@ -159,9 +159,9 @@ function App(): JSX.Element {
           options={{title: 'Non-Declarative'}}
         />
         <Stack.Screen
-          name="PixelShapeRN"
-          component={PixelShapeRNScreen}
-          options={{title: 'Pixel Shape RN'}}
+          name="PixelShape"
+          component={PixelShapeScreen}
+          options={{title: 'Pixel Shape'}}
         />
       </Stack.Navigator>
     </NavigationContainer>
