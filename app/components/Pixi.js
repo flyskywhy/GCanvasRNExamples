@@ -131,11 +131,30 @@ export default class Pixi extends Component {
       this.app.stage.addChild(spriteRequireLoader);
       spriteRequireLoader.x = 500;
       spriteRequireLoader.y = 700;
+      spriteRequireLoader.interactive = true;
+      spriteRequireLoader.on('touchstart', event => {
+        console.warn('spriteRequireLoader');
+      });
+
+      const point = new PIXI.Graphics();
+      point.beginFill(0x0bef47);
+      point.drawCircle(300, 300, 50);
+      point.endFill();
+      point.interactive = true; // 响应交互
+      point.buttonMode = true; // 鼠标变手型
+      point.on('touchstart', event => {
+        console.warn('graphics');
+      });
+      this.app.stage.addChild(point);
 
       this.app.ticker.add((delta) => gameLoop(delta));
 
       const textureHttp = await PIXI.loadTextures.load(imageHttpSrc, {});
       spriteHttpLoader = new PIXI.Sprite(textureHttp);
+      // spriteHttpLoader.interactive = true;
+      // spriteHttpLoader.on('touchstart', event => {
+      //   console.warn('spriteHttpLoader');
+      // });
       this.app.stage.addChild(spriteHttpLoader);
       spriteHttpLoader.y = 700;
     };
