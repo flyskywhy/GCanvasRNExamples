@@ -35,6 +35,7 @@ const forceCanvas = true;
 export default class Pixi extends Component {
   constructor(props) {
     super(props);
+    this.state = {isContainerLayouted: false};
     this.canvas = null;
     this.app = null;
   }
@@ -227,9 +228,16 @@ export default class Pixi extends Component {
     // spriteByFrom(); // pixi.js@4 @5 @6 @7 can use this
   };
 
+  _onLayout = l => {
+    this.setState({
+      isContainerLayouted: true,
+    });
+  };
+
   render() {
+    const {isContainerLayouted} = this.state;
     return (
-      <View style={styles.container}>
+      <View onLayout={this._onLayout} style={styles.container}>
         {Platform.OS === 'web' ? (
           <canvas
             id={'canvasExample'}
@@ -241,7 +249,7 @@ export default class Pixi extends Component {
               } /* canvas with react-native-web can't use width and height in styles.gcanvas */
             }
           />
-        ) : (
+        ) : isContainerLayouted === false ? null : (
           <GCanvasView
             style={styles.gcanvas}
             onCanvasResize={this.onCanvasResize}
