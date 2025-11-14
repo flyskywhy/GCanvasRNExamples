@@ -23,6 +23,7 @@ import PixiScreen from './app/components/Pixi';
 import DragNDropScreen from './src/dragNdrop';
 import NonDeclarativeScreen from './src/nonDeclarative';
 import PixelShapeScreen from './app/components/PixelShape';
+import KonvaScreen from './app/components/Konva';
 
 if (Platform.OS !== 'web') {
   require('react-native').LogBox.ignoreLogs([
@@ -82,6 +83,7 @@ function HomeScreen({navigation}) {
         title="Pixel Shape"
         onPress={() => navigation.navigate('PixelShape')}
       />
+      <Button title="KonvaJS" onPress={() => navigation.navigate('KonvaJS')} />
     </View>
   );
 }
@@ -162,6 +164,11 @@ function App(): JSX.Element {
           name="PixelShape"
           component={PixelShapeScreen}
           options={{title: 'Pixel Shape'}}
+        />
+        <Stack.Screen
+          name="KonvaJS"
+          component={KonvaScreen}
+          options={{title: 'KonvaJS'}}
         />
       </Stack.Navigator>
     </NavigationContainer>
