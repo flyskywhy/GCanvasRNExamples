@@ -1,22 +1,15 @@
-/**
- * Metro configuration for React Native
- * https://github.com/facebook/react-native
- *
- * @format
- */
+const {getDefaultConfig, mergeConfig} = require('@react-native/metro-config');
 const defaultAssetExts = require('metro-config/src/defaults/defaults')
   .assetExts;
 const exclusionList = require('metro-config/src/defaults/exclusionList');
 
-module.exports = {
-  transformer: {
-    getTransformOptions: async () => ({
-      transform: {
-        experimentalImportSupport: false,
-        inlineRequires: true,
-      },
-    }),
-  },
+/**
+ * Metro configuration
+ * https://reactnative.dev/docs/metro
+ *
+ * @type {import('@react-native/metro-config').MetroConfig}
+ */
+const config = {
   resolver: {
     assetExts: [...defaultAssetExts, 'dds', 'txt'],
     blockList: exclusionList([
@@ -40,3 +33,5 @@ module.exports = {
     ]),
   },
 };
+
+module.exports = mergeConfig(getDefaultConfig(__dirname), config);

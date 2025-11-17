@@ -90,7 +90,7 @@ function HomeScreen({navigation}) {
 
 const Stack = createNativeStackNavigator();
 
-function App(): JSX.Element {
+function App(): React.JSX.Element {
   return (
     <NavigationContainer>
       <StatusBar barStyle="dark-content" />
