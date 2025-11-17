@@ -15,8 +15,6 @@ project(':android:adapters:bridge_adapter').projectDir = new File(rootProject.pr
 include ':app'
 includeBuild('../node_modules/@react-native/gradle-plugin')
 
-apply from: new File(["node", "--print", "require.resolve('expo/package.json')"].execute(null, rootDir).text.trim(), "../scripts/autolinking.gradle")
-useExpoModules()
 
 // ref to https://docs.gradle.org/7.5.1/userguide/declaring_repositories.html#sub:centralized-repository-declaration
 dependencyResolutionManagement {

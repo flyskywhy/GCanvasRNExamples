@@ -3,7 +3,6 @@
 # source 'https://gitee.com/mirrors/CocoaPods-Specs.git' # 国内速度最快，但是更新不及时
 source 'https://github.com/CocoaPods/Specs.git' # 更新最及时，但是国内需要翻墙
 
-require File.join(File.dirname(`node --print "require.resolve('expo/package.json')"`), "scripts/autolinking")
 # Resolve react_native_pods.rb with node to allow for hoisting
 require Pod::Executable.execute_command('node', ['-p',
   'require.resolve(
@@ -44,14 +43,6 @@ if linkage != nil
 end
 
 target 'GCanvasRNExamples' do
-  use_expo_modules!
-  post_integrate do |installer|
-    begin
-    expo_patch_react_imports!(installer)
-    rescue => e
-      Pod::UI.warn e
-    end
-  end
   config = use_native_modules!
 
   pod "GCanvas", :path => "../node_modules/@flyskywhy/react-native-gcanvas/GCanvas.podspec"
