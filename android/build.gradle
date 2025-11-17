@@ -17,8 +17,12 @@ buildscript {
         //       > Could not get resource 'https://repo.maven.apache.org/maven2/com/google/guava/guava/17.0/guava-17.0.jar'.
         //          > Read timed out
         maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/central' }
         maven { url 'https://maven.aliyun.com/repository/jcenter' }
         maven { url 'https://maven.aliyun.com/nexus/content/groups/public' }
+
+        // to fix ` Could not GET 'https://dl.google.com/dl/android/maven2/com/google/prefab/cli/2.1.0/cli-2.1.0-all.jar'`
+        maven { url 'https://mvnrepository.com/artifact' }
 
         google()
         mavenCentral()
