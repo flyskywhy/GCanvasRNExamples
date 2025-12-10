@@ -73,10 +73,5 @@ yarn-error.log
 !.yarn/sdks
 !.yarn/versions
 
-# Expo
-.expo
-dist/
-web-build/
-
 # other
 /ios/Podfile.lock

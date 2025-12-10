@@ -1,4 +1,3 @@
-require File.join(File.dirname(`node --print "require.resolve('expo/package.json')"`), "scripts/autolinking")
 # `CDN: trunk URL couldn't be downloaded`, so use Specs.git instead
 # source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git' # 下载到一半会出错
 # source 'https://gitee.com/mirrors/CocoaPods-Specs.git' # 国内速度最快，但是更新不及时
@@ -44,24 +43,7 @@ if linkage != nil
 end
 
 target 'GCanvasRNExamples' do
-  use_expo_modules!
-
-  if ENV['EXPO_USE_COMMUNITY_AUTOLINKING'] == '1'
-    config_command = ['node', '-e', "process.argv=['', '', 'config'];require('@react-native-community/cli').run()"];
-  else
-    config_command = [
-      'node',
-      '--no-warnings',
-      '--eval',
-      'require(require.resolve(\'expo-modules-autolinking\', { paths: [require.resolve(\'expo/package.json\')] }))(process.argv.slice(1))',
-      'react-native-config',
-      '--json',
-      '--platform',
-      'ios'
-    ]
-  end
-
-  config = use_native_modules!(config_command)
+  config = use_native_modules!
 
   pod "GCanvas", :path => "../node_modules/@flyskywhy/react-native-gcanvas/GCanvas.podspec"
 

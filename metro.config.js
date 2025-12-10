@@ -1,5 +1,4 @@
-const { getDefaultConfig } = require('expo/metro-config');
-const { mergeConfig } = require('@react-native/metro-config');
+const {getDefaultConfig, mergeConfig} = require('@react-native/metro-config');
 const defaultAssetExts = require('metro-config/src/defaults/defaults')
   .assetExts;
 const exclusionList = require('metro-config/src/defaults/exclusionList');
