@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "rn": "adb reverse tcp:8081 tcp:8081; node node_modules/react-native/cli.js start",
+    "rn-logs": "adb reverse tcp:8081 tcp:8081; node node_modules/react-native/cli.js start --client-logs",
     "rn-fresh": "adb reverse tcp:8081 tcp:8081; watchman watch-del-all; rm -rf /tmp/react-*; rm -rf /tmp/npm-*; rm -rf /tmp/haste-*; rm -rf /tmp/metro-*; node node_modules/react-native/cli.js start --reset-cache",
     "android": "node node_modules/react-native/cli.js run-android",
     "android-clean": "cross-env ./android/gradlew clean -p ./android/",
