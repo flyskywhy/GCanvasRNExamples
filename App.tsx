@@ -20,10 +20,10 @@ import AudioWaveSurferScreen from './app/components/AudioWaveSurfer';
 import Webgl3dTexturesScreen from './app/components/Webgl3dTextures';
 import WebglCubeMapsScreen from './app/components/WebglCubeMaps';
 import PixiScreen from './app/components/Pixi';
-import DragNDropScreen from './src/dragNdrop';
-import NonDeclarativeScreen from './src/nonDeclarative';
+// import DragNDropScreen from './src/dragNdrop';
+// import NonDeclarativeScreen from './src/nonDeclarative';
 import PixelShapeScreen from './app/components/PixelShape';
-import KonvaScreen from './app/components/Konva';
+// import KonvaScreen from './app/components/Konva';
 
 if (Platform.OS !== 'web') {
   require('react-native').LogBox.ignoreLogs([
@@ -71,19 +71,19 @@ function HomeScreen({navigation}) {
         onPress={() => navigation.navigate('WebglCubeMaps')}
       />
       <Button title="PixiJS" onPress={() => navigation.navigate('PixiJS')} />
-      <Button
+      {/*<Button
         title="babylonjs Drag and drop"
         onPress={() => navigation.navigate('DragNDrop')}
-      />
-      <Button
+      />*/}
+      {/*<Button
         title="babylonjs Non-Declarative"
         onPress={() => navigation.navigate('NonDeclarative')}
-      />
+      />*/}
       <Button
         title="Pixel Shape"
         onPress={() => navigation.navigate('PixelShape')}
       />
-      <Button title="KonvaJS" onPress={() => navigation.navigate('KonvaJS')} />
+      {/*<Button title="KonvaJS" onPress={() => navigation.navigate('KonvaJS')} />*/}
     </View>
   );
 }
@@ -150,26 +150,26 @@ function App(): React.JSX.Element {
           component={PixiScreen}
           options={{title: 'PixiJS'}}
         />
-        <Stack.Screen
+        {/*<Stack.Screen
           name="DragNDrop"
           component={DragNDropScreen}
           options={{title: 'Drag and drop'}}
-        />
-        <Stack.Screen
+        />*/}
+        {/*<Stack.Screen
           name="NonDeclarative"
           component={NonDeclarativeScreen}
           options={{title: 'Non-Declarative'}}
-        />
+        />*/}
         <Stack.Screen
           name="PixelShape"
           component={PixelShapeScreen}
           options={{title: 'Pixel Shape'}}
         />
-        <Stack.Screen
+        {/*<Stack.Screen
           name="KonvaJS"
           component={KonvaScreen}
           options={{title: 'KonvaJS'}}
-        />
+        />*/}
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -34,11 +34,11 @@ Examples for [@flyskywhy/react-native-gcanvas](https://github.com/flyskywhy/reac
 
 <img src="https://raw.githubusercontent.com/flyskywhy/GCanvasRNExamples/master/assets/Pixi.gif" width="480">
 
-* GIF of [babylonjs multiple touches Drag and drop](https://brianzinn.github.io/create-react-app-babylonjs/dragNdrop)
+* (not work for `react-native-babylonjs@1.1.2` can not work in `react@19` comes from `react-native@0.79`) GIF of [babylonjs multiple touches Drag and drop](https://brianzinn.github.io/create-react-app-babylonjs/dragNdrop)
 
 <img src="https://raw.githubusercontent.com/flyskywhy/GCanvasRNExamples/master/assets/BabylonjsDragNDrop.gif" width="480">
 
-* GIF of [babylonjs Non-Declarative](https://brianzinn.github.io/create-react-app-babylonjs/nonDeclarative)
+* (not work for `react-native-babylonjs@1.1.2` can not work in `react@19` comes from `react-native@0.79`) GIF of [babylonjs Non-Declarative](https://brianzinn.github.io/create-react-app-babylonjs/nonDeclarative)
 
 <img src="https://raw.githubusercontent.com/flyskywhy/GCanvasRNExamples/master/assets/BabylonjsNonDeclarative.gif" width="480">
 
