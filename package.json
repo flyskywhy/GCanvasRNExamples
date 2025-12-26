@@ -29,7 +29,7 @@
     "@babylonjs/core": "7.54.3",
     "@babylonjs/gui": "7.54.3",
     "@babylonjs/loaders": "7.54.3",
-    "@flyskywhy/react-native-gcanvas": "6.0.23",
+    "@flyskywhy/react-native-gcanvas": "6.0.24",
     "@githubprimer/octicons-react": "^8.5.0",
     "@react-native-community/slider": "5.1.1",
     "@react-navigation/native": "^6.0.10",
